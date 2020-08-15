@@ -7,7 +7,7 @@ client.on("ready", () => {
 });
 
 const HelpEmbed = new Discord.MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#667dff')
 	.setTitle('KoreNime')
 	.setURL('https://korenime.org')
 	.setAuthor('Korenimedesu Official', 'https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/55949885_538923719964479_3109324394070016000_o.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=31NeMPdJDzgAX-NLziA&_nc_ht=scontent-sin6-1.xx&oh=af65597c16e3f45eedab0069e9499782&oe=5F5BE3AF', 'https://discord.gg/QgXhHNz')
