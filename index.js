@@ -66,7 +66,7 @@ client.on("message", msg => {
   switch (args[0]) {
     case 'mute':
       var person  = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[1]));
-      if(!person) return  msg.reply("I cant find member named" + args[1])
+      if(!person) return  msg.reply("I cant find member named " + args[1])
  
       let mainrole = msg.guild.roles.cache.find(role => role.name === "Member");
       let role = msg.guild.roles.cache.find(role => role.name === "mute");
