@@ -1,5 +1,5 @@
 var Discord = require("discord.js");
-var prefix = "s?";
+var prefix = "k!";
 var client = new Discord.Client();
 
 client.on("ready", () => {
