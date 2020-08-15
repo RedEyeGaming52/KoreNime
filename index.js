@@ -6,6 +6,8 @@ client.on("ready", () => {
   console.log("bot online");
 });
 
+const ms = require("ms");
+
 const HelpEmbed = new Discord.MessageEmbed()
 	.setColor('#667dff')
 	.setTitle('KoreNime')
@@ -59,29 +61,38 @@ client.on("message", msg => {
       msg.channel.send("An error occured!");
     });
   }
-  if (msg.content.toLowerCase().startsWith(prefix + "mute")) {
-    var mem = msg.mentions.members.first();
-    if (msg.guild.roles.chace.find("name", "【Muted】")) {
-      mem.addRole(msg.guild.roles.find("name", "Muted")).then(() => {
-        msg.channel.send(mem.displayName + " has successfully been muted!");
-      }).catch(e => {
-        msg.channel.send("An error occured!");
-        console.log(e);
-      });
+  let args = msg.content.substring(prefix.length).split(" ");
 
-    }
-  }
-  if (msg.content.toLowerCase().startsWith(prefix + "unmute")) {
-    var mem = msg.mentions.members.first();
-    if (msg.guild.roles.find("name", "Muted")) {
-      mem.removeRole(msg.guild.roles.chace.find("name", "【Muted】")).then(() => {
-        msg.channel.send(mem.displayName + " has successfully been unmuted!");
-      }).catch(e => {
-        msg.channel.send("An error occured!");
-        console.log(e);
-      });
-
-    }
+  switch (args[0]) {
+    case 'mute':
+      var person  = msg.guild.member(msg.mentions.users.first() || msg.guild.members.cache.get(args[1]));
+      if(!person) return  msg.reply("I cant find member named" + args[1])
+ 
+      let mainrole = msg.guild.roles.cache.find(role => role.name === "【GUEST】");
+      let role = msg.guild.roles.cache.find(role => role.name === "mute");
+           
+ 
+      if(!role) return msg.reply("Couldn't find the mute role.")
+ 
+ 
+     let time = args[2];
+     if(!time){
+       return msg.reply("You didnt specify a time!");
+     }
+ 
+     person.roles.add(mainrole.id)
+     person.roles.remove(role.id);
+ 
+ 
+     msg.channel.send(`@${person.user.tag} has now been muted for ${ms(ms(time))}`)
+ 
+     setTimeout(function(){
+                
+       person.roles.add(mainrole.id)
+       person.roles.add(role.id);
+       console.log(role.id)
+       msg.channel.send(`@${person.user.tag} has been unmuted.`)
+     }, ms(time));
   }
   if (msg.content.toLowerCase().startsWith(prefix + "purge")) {
     var mc = msg.content.split(" ")[1];
