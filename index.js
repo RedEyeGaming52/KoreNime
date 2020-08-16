@@ -80,17 +80,17 @@ client.on("message", msg => {
        return msg.reply("You didnt specify a time!");
      }
  
-     person.roles.add(mainrole.id)
-     person.roles.remove(role.id);
+     person.roles.add(mainrole)
+     person.roles.remove(role);
  
  
      msg.channel.send(`@${person.user.tag} has now been muted for ${ms(ms(time))}`)
  
      setTimeout(function(){
                 
-       person.roles.add(mainrole.id)
-       person.roles.add(role.id);
-       console.log(role.id)
+       person.roles.add(mainrole)
+       person.roles.add(role);
+       console.log(role)
        msg.channel.send(`@${person.user.tag} has been unmuted.`)
      }, ms(time));
   }
