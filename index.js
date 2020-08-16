@@ -31,14 +31,6 @@ var bannedwords = "812581480804".split(",");
 client.on("message", msg => {
   if (msg.guild === null) return;
 
-  for (i=0;i<bannedwords.length;i++) {
-    if (msg.content.toLowerCase().includes(bannedwords[i])) {
-      msg.delete();
-      msg.reply("BADWORD");
-      return;
-    }
-  }
-
   if (msg.author.bot) return;
   if (!msg.member.hasPermission("ADMINISTRATOR")) return;
 
