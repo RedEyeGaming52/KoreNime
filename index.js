@@ -69,7 +69,7 @@ client.on("message", msg => {
       if(!person) return  msg.reply("I cant find member named " + args[1])
  
       let mainrole = msg.guild.roles.cache.find(role => role.name === "Member");
-      let role = msg.guild.roles.cache.find(role => role.name === "mute");
+      let role = msg.guild.roles.cache.find(role => role.name === "Muted");
            
  
       if(!role) return msg.reply("Couldn't find the mute role.")
