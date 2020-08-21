@@ -17,8 +17,8 @@ const HelpEmbed = new Discord.MessageEmbed()
 	.addFields(
 		{ name: 'Command List', value: 'Korenime Discord Bot Command List' },
 		{ name: '\u200B', value: '\u200B' },
-	        { name: 'Moderation', value: '**k!mute, k!kick, k!ban, k!purge**', inline: true },
-		{ name: 'Fun', value: '**k!avatar**', inline: true },
+	        { name: 'Moderation', value: 'k!mute, k!kick, k!ban, k!purge', inline: true },
+		{ name: 'Fun', value: 'k!avatar, k!kiss, k!hug', inline: true },
 	)
 	.setImage('https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/55949885_538923719964479_3109324394070016000_o.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=31NeMPdJDzgAX-NLziA&_nc_ht=scontent-sin6-1.xx&oh=af65597c16e3f45eedab0069e9499782&oe=5F5BE3AF')
 	.setTimestamp()
