@@ -32,6 +32,58 @@ client.on("message", msg => {
   if (msg.guild === null) return;
 
   if (msg.author.bot) return;
+	
+  if (!msg.content.toLowerCase().startsWith(prefix)) return;
+  msg.delete();
+  if(msg.content.toLowerCase().startsWith(prefix + "kiss")){
+    var images = ["https://media.tenor.com/images/72a0086bf41c0fa67148139880be9407/tenor.gif", "https://media.tenor.com/images/a57e599cbda46a8f9cf9b2edc3f84dbc/tenor.gif", "https://media.tenor.com/images/a6669f4044d66658c7ce96be768965e4/tenor.gif", "https://media.tenor.com/images/275d46a781ce4fb153a47c09bea28d51/tenor.gif" ];
+    var image = Math.floor(Math.random() * images.length);
+    if(msg.mentions.users.size){
+       let member=msg.mentions.users.first()
+    if(member){
+       const emb=new Discord.MessageEmbed().setImage(String([images[image]])).setTitle(msg.author.username + " Kissed " + member.username)
+       msg.channel.send(emb)
+    }else{
+      msg.channel.send("Sorry none found with that name")
+    }
+    }else{
+      msg.channel.send("Sorry none found with that name");
+    }
+  }
+  if(msg.content.toLowerCase().startsWith(prefix + "hug")){
+    var images = ["https://media.tenor.com/images/a9bb4d55724484be94d13dd94721a8d9/tenor.gif", "https://media1.tenor.com/images/506aa95bbb0a71351bcaa753eaa2a45c/tenor.gif?itemid=7552075", "https://media1.tenor.com/images/969f0f462e4b7350da543f0231ba94cb/tenor.gif?itemid=14246498", "https://media1.tenor.com/images/4d89d7f963b41a416ec8a55230dab31b/tenor.gif?itemid=5166500" ];
+    var image = Math.floor(Math.random() * images.length);
+    if(msg.mentions.users.size){
+       let member=msg.mentions.users.first()
+    if(member){
+       const emb=new Discord.MessageEmbed().setImage(String([images[image]])).setTitle(msg.author.username + " Hugs " + member.username)
+       msg.channel.send(emb)
+    }else{
+      msg.channel.send("Sorry none found with that name")
+    }
+    }else{
+      msg.channel.send("Sorry none found with that name");
+    }
+  }	
+  if(msg.content.toLowerCase().startsWith(prefix + "avatar")){
+    if(msg.mentions.users.size){
+       let member=msg.mentions.users.first()
+    if(member){
+       const emb=new Discord.MessageEmbed().setImage(member.displayAvatarURL()).setTitle(member.username)
+       msg.channel.send(emb)
+    }else{
+      msg.channel.send("Sorry none found with that name")
+    }
+    }else{
+      const emb=new Discord.MessageEmbed().setImage(msg.author.displayAvatarURL()).setTitle(msg.author.username)
+      msg.channel.send(emb);
+    }
+  }
+  if (msg.content.toLowerCase().startsWith(prefix + "help")) {
+    msg.channel.send(HelpEmbed);
+    return;
+  }
+	
   if (!msg.member.hasPermission("ADMINISTRATOR")) return;
 
   if (!msg.content.toLowerCase().startsWith(prefix)) return;
@@ -89,33 +141,6 @@ client.on("message", msg => {
   if (msg.content.toLowerCase().startsWith(prefix + "purge")) {
     var mc = msg.content.split(" ")[1];
     msg.channel.bulkDelete(mc);
-  }
-  if (msg.content.toLowerCase().startsWith(prefix + "eval")) {
-    var sc = msg.content.substring(msg.content.indexOf(" "));
-    eval(sc);
-  }
-  if (msg.content.toLowerCase().startsWith(prefix + "calc")) {
-    var ca = msg.content.substring(msg.content.indexOf(" "));
-    msg.reply(ca + " is " + eval(ca).toFixed(2));
-  }
-  if (msg.content.toLowerCase().startsWith(prefix + "help")) {
-    msg.channel.send(HelpEmbed);
-    return;
-  }
-	
-  if(msg.content.toLowerCase().startsWith(prefix + "avatar")){
-    if(msg.mentions.users.size){
-       let member=msg.mentions.users.first()
-    if(member){
-       const emb=new Discord.MessageEmbed().setImage(member.displayAvatarURL()).setTitle(member.username)
-       msg.channel.send(emb)
-    }else{
-      msg.channel.send("Sorry none found with that name")
-    }
-    }else{
-      const emb=new Discord.MessageEmbed().setImage(msg.author.displayAvatarURL()).setTitle(msg.author.username)
-      msg.channel.send(emb);
-    }
   }
 });
 
