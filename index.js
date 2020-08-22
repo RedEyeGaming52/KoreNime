@@ -82,7 +82,7 @@ client.on("message", msg => {
     }
   }
   if (msg.content.toLowerCase().startsWith(prefix + "help")) {
-    msg.channel.send(HelpEmbed);
+    msg.author.send(HelpEmbed);
     return;
   }
 	
