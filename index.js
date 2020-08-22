@@ -146,4 +146,4 @@ client.on("message", msg => {
   }
 });
 
-client.login("NDQxODg0MDYwMjY5NDEyMzcz.WuwemQ.ax_5zQZfOqNE97WIAqmWyFV1RlY");
+client.login("NDQxODg0MDYwMjY5NDEyMzcz.WuwemQ.-ocenpldNGp7-tkHpw082e-LQuY");
