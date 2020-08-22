@@ -41,13 +41,14 @@ client.on("message", msg => {
     if(msg.mentions.users.size){
        let member=msg.mentions.users.first()
     if(member){
-       const emb=new Discord.MessageEmbed().setImage(String([images[image]])).setTitle(msg.author.username + " Kissed " + member.username)
-       msg.channel.send(emb)
+      const emb=new Discord.MessageEmbed().setImage(String([images[image]])).setTitle(msg.author.username + " Kissed " + member.username)
+      msg.channel.send(emb)
     }else{
       msg.channel.send("Sorry none found with that name")
     }
     }else{
-      msg.channel.send("Sorry none found with that name");
+      const emb= new Discord.MessageEmbed().setTitle("Usage:").setDescription("k!kiss [mention]")
+      msg.channel.send(emb);
     }
   }
   if(msg.content.toLowerCase().startsWith(prefix + "hug")){
@@ -62,7 +63,8 @@ client.on("message", msg => {
       msg.channel.send("Sorry none found with that name")
     }
     }else{
-      msg.channel.send("Sorry none found with that name");
+      const emb= new Discord.MessageEmbed().setTitle("Usage:").setDescription("k!hug [mention]")
+      msg.channel.send(emb);
     }
   }	
   if(msg.content.toLowerCase().startsWith(prefix + "avatar")){
