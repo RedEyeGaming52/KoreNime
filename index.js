@@ -83,6 +83,7 @@ client.on("message", msg => {
   }
   if (msg.content.toLowerCase().startsWith(prefix + "help")) {
     msg.author.send(HelpEmbed);
+    msg.reply("Check your Dm")
     return;
   }
 	
